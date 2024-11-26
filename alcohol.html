@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алкоголь - AROY AROY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="bg-white font-sans">
+    <!-- Header -->
+    <header class="flex justify-between items-center p-3 bg-red-700 shadow-md fixed w-full z-50">
+        <div class="flex items-center space-x-3">
+            <img src="" alt="Логотип AROY AROY" class="w-10 h-10">
+            <div>
+                <h1 class="text-4xl font-extrabold text-white">AROY AROY</h1>
+                <p class="text-lg text-orange-200">Ресторан тайско-русской кухни</p>
+            </div>
+        </div>
+        <nav class="flex space-x-6">
+            <a href="{% url 'index' %}" class="text-white text-lg hover:text-orange-200 transition">Главная</a>
+            <a href="{% url 'cart' %}" class="text-white text-lg hover:text-orange-200 transition">Корзина</a>
+        </nav>
+    </header>
+
+    <div class="container mx-auto p-10 pt-24">
+        <h2 class="text-3xl font-bold mb-5 text-center text-red-700">Алкоголь</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="bg-white shadow-md rounded-lg p-5">
+                <img src="http://smorovoz.ru/netcat_files/167/189/h_82f9cec502a8f1db83a1d4c33da1c313" alt="Водка" class="w-full rounded-md mb-4">
+                <h3 class="text-xl font-semibold text-red-700">Водка</h3>
+                <p class="text-gray-700">Традиционный русский алкогольный напиток, крепкий и чистый.</p>
+                <p class="text-red-700 font-bold mt-2">300 руб.</p>
+                <div class="flex space-x-2 mt-4">
+                    <a href="{% url 'add_to_cart' product_id=4 %}" class="bg-green-500 text-white px-4 py-2 rounded">+</a>
+                    <a href="{% url 'remove_from_cart' product_id=4 %}" class="bg-red-500 text-white px-4 py-2 rounded">-</a>
+                </div>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-5">
+                <img src="https://tn.fishki.net/26/upload/post/201507/20/1601849/7c78cd1fdd81b7e86619b6b007d7d256.jpg" alt="Настойка" class="w-full rounded-md mb-4">
+                <h3 class="text-xl font-semibold text-red-700">Настойка</h3>
+                <p class="text-gray-700">Алкогольная настойка на ягодах и травах, обладает приятным ароматом.</p>
+                <p class="text-red-700 font-bold mt-2">350 руб.</p>
+                <div class="flex space-x-2 mt-4">
+                    <a href="{% url 'add_to_cart' product_id=5 %}" class="bg-green-500 text-white px-4 py-2 rounded">+</a>
+                    <a href="{% url 'remove_from_cart' product_id=5 %}" class="bg-red-500 text-white px-4 py-2 rounded">-</a>
+                </div>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-5">
+                <img src="https://aif-s3.aif.ru/images/023/271/f2468278d29ac011ed95a2384de859b9.jpg" alt="Коньяк" class="w-full rounded-md mb-4">
+                <h3 class="text-xl font-semibold text-red-700">Коньяк</h3>
+                <p class="text-gray-700">Благородный крепкий напиток с выдержкой, подается в бокалах.</p>
+                <p class="text-red-700 font-bold mt-2">500 руб.</p>
+                <div class="flex space-x-2 mt-4">
+                    <a href="{% url 'add_to_cart' product_id=6 %}" class="bg-green-500 text-white px-4 py-2 rounded">+</a>
+                    <a href="{% url 'remove_from_cart' product_id=6 %}" class="bg-red-500 text-white px-4 py-2 rounded">-</a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-10 text-center">
+            <a href="{% url 'menu' %}" class="bg-red-700 text-white px-6 py-3 rounded-lg">Вернуться в меню</a>
+        </div>
+    </div>
+    {% include 'menu/common_footer.html' %}
+</body>
+</html>

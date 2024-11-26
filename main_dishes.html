@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вторые блюда - AROY AROY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="bg-white font-sans">
+    <!-- Header -->
+    <header class="flex justify-between items-center p-3 bg-red-700 shadow-md fixed w-full z-50">
+        <div class="flex items-center space-x-3">
+            <img src="" alt="Логотип AROY AROY" class="w-10 h-10">
+            <div>
+                <h1 class="text-4xl font-extrabold text-white">AROY AROY</h1>
+                <p class="text-lg text-orange-200">Ресторан тайско-русской кухни</p>
+            </div>
+        </div>
+        <nav class="flex space-x-6">
+            <a href="{% url 'index' %}" class="text-white text-lg hover:text-orange-200 transition">Главная</a>
+            <a href="{% url 'cart' %}" class="text-white text-lg hover:text-orange-200 transition">Корзина</a>
+        </nav>
+    </header>
+
+    <div class="container mx-auto p-10 pt-24">
+        <h2 class="text-3xl font-bold mb-5 text-center text-red-700">Вторые блюда</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="bg-white shadow-md rounded-lg p-5">
+                <img src="{% static 'images/pelmeni.jpg' %}" alt="Пельмени" class="w-full rounded-md mb-4">
+                <h3 class="text-xl font-semibold text-red-700">Пельмени</h3>
+                <p class="text-gray-700">Традиционные русские пельмени с мясной начинкой, подаются со сметаной.</p>
+                <p class="text-red-700 font-bold mt-2">500 руб.</p>
+                <div class="flex space-x-2 mt-4">
+                    <a href="{% url 'add_to_cart' product_id=1 %}" class="bg-green-500 text-white px-4 py-2 rounded">+</a>
+                    <a href="{% url 'remove_from_cart' product_id=1 %}" class="bg-red-500 text-white px-4 py-2 rounded">-</a>
+                </div>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-5">
+                <img src="{% static 'images/beef_stroganoff.jpg' %}" alt="Бефстроганов" class="w-full rounded-md mb-4">
+                <h3 class="text-xl font-semibold text-red-700">Бефстроганов</h3>
+                <p class="text-gray-700">Кусочки говядины в нежном сметанном соусе, подаются с картофельным пюре.</p>
+                <p class="text-red-700 font-bold mt-2">600 руб.</p>
+                <div class="flex space-x-2 mt-4">
+                    <a href="{% url 'add_to_cart' product_id=2 %}" class="bg-green-500 text-white px-4 py-2 rounded">+</a>
+                    <a href="{% url 'remove_from_cart' product_id=2 %}" class="bg-red-500 text-white px-4 py-2 rounded">-</a>
+                </div>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-5">
+                <img src="{% static 'images/kiev_cutlet.jpg' %}" alt="Котлета по-киевски" class="w-full rounded-md mb-4">
+                <h3 class="text-xl font-semibold text-red-700">Котлета по-киевски</h3>
+                <p class="text-gray-700">Куриная котлета с маслом внутри, хрустящей панировкой, подается с гарниром.</p>
+                <p class="text-red-700 font-bold mt-2">550 руб.</p>
+                <div class="flex space-x-2 mt-4">
+                    <a href="{% url 'add_to_cart' product_id=3 %}" class="bg-green-500 text-white px-4 py-2 rounded">+</a>
+                    <a href="{% url 'remove_from_cart' product_id=3 %}" class="bg-red-500 text-white px-4 py-2 rounded">-</a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-10 text-center">
+            <a href="{% url 'menu' %}" class="bg-red-700 text-white px-6 py-3 rounded-lg">Вернуться в меню</a>
+        </div>
+    </div>
+    {% include 'menu/common_footer.html' %}
+</body>
+</html>

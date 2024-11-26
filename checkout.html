@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа - AROY AROY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="bg-white font-sans">
+    <!-- Header -->
+    <header class="flex justify-between items-center p-3 bg-red-700 shadow-md fixed w-full z-50">
+        <div class="flex items-center space-x-3">
+            <img src="" alt="Логотип AROY AROY" class="w-10 h-10">
+            <div>
+                <h1 class="text-4xl font-extrabold text-white">AROY AROY</h1>
+                <p class="text-lg text-orange-200">Ресторан тайско-русской кухни</p>
+            </div>
+        </div>
+        <nav class="flex space-x-6">
+            <a href="{% url 'home' %}" class="text-white text-lg hover:text-orange-200 transition">Главная</a>
+            <a href="{% url 'cart' %}" class="text-white text-lg hover:text-orange-200 transition">Корзина</a>
+        </nav>
+    </header>
+
+    <div class="container mx-auto p-10 pt-24">
+        <h2 class="text-3xl font-bold mb-5 text-center text-red-700">Оформление заказа</h2>
+        <p class="text-center text-gray-700">Здесь вы можете оформить ваш заказ. Пожалуйста, заполните форму ниже.</p>
+        <!-- Добавьте форму или информацию о заказе здесь -->
+        <div class="mt-10 text-center">
+            <a href="{% url 'cart' %}" class="bg-red-700 text-white px-6 py-3 rounded-lg">Вернуться в корзину</a>
+        </div>
+    </div>
+    {% include 'menu/common_footer.html' %}
+</body>
+</html>

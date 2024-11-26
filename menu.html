@@ -1,0 +1,139 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню ресторана - AROY AROY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #f8f4e6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #b22222;
+        }
+
+        .menu-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .menu-row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .category {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            width: 200px;
+        }
+
+        .category:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .category img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .category h3 {
+            margin: 15px 0;
+            font-size: 1.5em;
+            color: #b22222;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f0e6d6;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans">
+    <!-- Header -->
+    <header class="flex justify-between items-center p-3 bg-red-700 shadow-md fixed w-full z-50">
+        <div class="flex items-center space-x-3">
+            <img src="" alt="Логотип AROY AROY" class="w-10 h-10">
+            <div>
+                <h1 class="text-4xl font-extrabold text-white">AROY AROY</h1>
+                <p class="text-lg text-orange-200">Ресторан тайско-русской кухни</p>
+            </div>
+        </div>
+        <nav class="flex space-x-6">
+            <a href="{% url 'index' %}" class="text-white text-lg hover:text-orange-200 transition">Главная</a>
+            <a href="{% url 'cart' %}" class="text-white text-lg hover:text-orange-200 transition">Корзина</a>
+        </nav>
+    </header>
+
+    <div class="menu-categories container mx-auto p-10 pt-24">
+        <div class="menu-row">
+            <a href="{% url 'menu_salads' %}" class="category">
+                <img src="/static/images/salads.jpg" alt="Салаты">
+                <h3>Салаты</h3>
+            </a>
+            <a href="{% url 'menu_soups' %}" class="category">
+                <img src="/static/images/soups.jpg" alt="Супы">
+                <h3>Супы</h3>
+            </a>
+            <a href="{% url 'menu_main_dishes' %}" class="category">
+                <img src="/static/images/main_dishes.jpg" alt="Вторые блюда">
+                <h3>Вторые блюда</h3>
+            </a>
+            <a href="{% url 'menu_appetizers' %}" class="category">
+                <img src="/static/images/appetizers.jpg" alt="Закуски">
+                <h3>Закуски</h3>
+            </a>
+        </div>
+        <div class="menu-row">
+            <a href="{% url 'menu_garnishes' %}" class="category">
+                <img src="/static/images/garnishes.jpg" alt="Гарниры">
+                <h3>Гарниры</h3>
+            </a>
+            <a href="{% url 'menu_drinks' %}" class="category">
+                <img src="/static/images/drinks.jpg" alt="Напитки">
+                <h3>Напитки</h3>
+            </a>
+            <a href="{% url 'menu_alcohol' %}" class="category">
+                <img src="http://smorovoz.ru/netcat_files/167/189/h_82f9cec502a8f1db83a1d4c33da1c313" alt="Алкоголь">
+                <h3>Алкоголь</h3>
+            </a>
+        </div>
+    </div>
+    {% include 'menu/common_footer.html' %}
+</body>
+</html>
